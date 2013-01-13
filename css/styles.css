@@ -1,0 +1,533 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    line-height: 1;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* End of CSS Reset */
+
+@font-face {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arimo'), local('Arimo-Regular'), url('../fonts/Arimo/Arimo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Arimo Bold';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arimo'), local('Arimo-Bold'), url('../fonts/Arimo/Arimo-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Arimo Italic';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arimo'), local('Arimo-Italic'), url('../fonts/Arimo/Arimo-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Arimo Bold Italic';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arimo'), local('Arimo-BoldItalic'), url('../fonts/Arimo/Arimo-BoldItalic.ttf') format('truetype');
+}
+
+body {
+    font: 24px 'Arimo Bold', Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: #000;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+.presentation {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    display: block;
+    overflow: hidden;
+}
+
+.slides {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    display: table-cell;
+    vertical-align: middle;
+    -webkit-transition: -webkit-transform 1s ease-in-out;
+    -moz-transition: -moz-transform 1s ease-in-out;
+    -o-transition: -o-transform 1s ease-in-out;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: margin 0.5s ease-in-out;
+    -moz-transition: margin 0.5s ease-in-out;
+    -o-transition: margin 0.5s ease-in-out;
+    transition: margin 0.5s ease-in-out;
+}
+
+.force-render {
+    display: block;
+    visibility: hidden;
+}
+
+.slide.far-past {
+    display: block;
+    margin-top: -200%;
+}
+
+.slide.past {
+    visibility: visible;
+    display: block;
+    margin-top: -100%;
+}
+
+.slide.current {
+    visibility: visible;
+    display: block;
+}
+
+.slide.future {
+    visibility: visible;
+    display: block;
+    margin-top: 100%;
+}
+
+.slide.far-future {
+    display: block;
+    margin-top: 200%;
+}
+
+[data-build] > .to-build {
+    opacity: 0;
+}
+
+/* Multi-step slides */
+[data-build] > .to-build {
+    opacity: 0;
+}
+
+[data-build] > * {
+    -webkit-transition: opacity 0.5s ease-in-out 0.2s;
+    -moz-transition: opacity 0.5s ease-in-out 0.2s;
+    -o-transition: opacity 0.5s ease-in-out 0.2s;
+}
+
+/* Responsive slide sizes */
+
+/* 640 x 480 */
+@media (max-width: 799px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+/* 800 x 600 */
+@media (min-width: 800px) and (max-width: 1023px) {
+    body {
+        font-size: 18.75px;
+    }
+}
+
+/* 1152 x 864 */
+@media (min-width: 1152px) and (min-height: 864px) {
+    body {
+        font-size: 27px;
+    }
+}
+
+/* 1280 x 960 */
+@media (min-width: 1280px) and (min-height: 960px) {
+    body {
+        font-size: 30px;
+    }
+}
+
+/* 1440 x 1080 */
+@media (min-width: 1440px) and (min-height: 1080px) {
+    body {
+        font-size: 33.75px;
+    }
+}
+
+/* 1600 x 1200 */
+@media (min-width: 1600px) and (min-height: 1200px) {
+    body {
+        font-size: 37.5px;
+    }
+}
+
+/* 1920 x 1440 */
+@media (min-width: 1920px) and (min-height: 1440px) {
+    body {
+        font-size: 45px;
+    }
+}
+
+h1 {
+    font-family: 'Arimo', arial, sans-serif;
+    font-size: 4em;
+    font-weight: bold;
+    padding: 0;
+    margin: 4% 0;
+    text-shadow: 2px 2px 2px #333;
+}
+
+h2 {
+    font-family: 'Arimo', arial, sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 0;
+    margin: 5% 0;
+    text-shadow: 2px 2px 2px #333;
+    width: 100%;
+}
+
+h3, h4 {
+    font-family: "Arimo Bold", arial, helvetica, sans-serif;
+    text-shadow: 2px 2px 2px #333;
+}
+
+h3 {
+    margin: 4% 0;
+    font-size: 1.5em;
+}
+
+h4 {
+    margin: 0.5em 0;
+    font-size: 1.2em;
+}
+
+em {
+    font-family: "Arimo Bold Italic", arial, helvetica, sans-serif;
+}
+
+#logo {
+    position: absolute;
+    width: 212px;
+    height: 68px;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    background-image: url('../img/techsummit-logo.png');
+}
+
+footer {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: #00509f;
+    color: #ffffff;
+}
+
+footer .alwayslearning {
+    float: left;
+    display: block;
+    height: 50px;
+    width: 142px;
+    margin-left: 15px;
+    background: url('../img/always-learning.png') 0px 18px no-repeat;
+}
+
+footer .pearson {
+    float: right;
+    display: block;
+    height: 50px;
+    width: 114px;
+    margin-right: 15px;
+    background: url('../img/pearson.png') 0px 16px no-repeat;
+}
+
+pre {
+    text-align: left;
+    font-family: Courier;
+    padding: 1em 1.5em;
+    font-size: 1em;
+    margin: 1em auto;
+    width: 90%;
+    height: 60%;
+    background: rgba( 50, 50, 50, 0.9 );
+    border-radius: 1em;
+    overflow-y: auto;
+}
+
+pre b {
+    font-weight: normal;
+    color: #fff;
+    text-shadow: #333 0 0 1px;
+}
+
+pre em {
+    font-weight: normal;
+    font-style: normal;
+    color: #aff7ff;
+}
+
+a {
+    color: #b8e7ee;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.centre-wrap {
+    float: left;
+    position: relative;
+    left: 50%;
+}
+
+ul, ol {
+    font-size: 1.5em;
+    list-style-type: none;
+    text-align: left;
+    float: left;
+    position: relative;
+    left: -50%;
+}
+
+li {
+    padding: 2% 0 2% 50px;
+    background: url('../img/cube-bullet.png') no-repeat 0 50%;
+    text-shadow: 2px 2px 2px #333;
+    line-height: 1.7em;
+}
+
+.squeezeUp li {
+    line-height: 1.4em;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Slideshows */
+
+[data-slideshow] {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+[data-slideshow] > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+[data-slideshow] img {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+[data-slideshow] a.caption {
+    position: relative;
+    opacity: 0;
+    bottom: 1.5em;
+    right: 0;
+    font-size: 0.5em;
+    padding: 0.5em;
+    text-shadow: 1px 1px #666;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+
+[data-slideshow] .current a.caption {
+    opacity: 0.9;
+}
+
+.fade {
+    opacity: 0.5;
+}
+
+/* Syntax highlighting */
+
+pre .kwd {
+    color: #db9dff;
+}
+
+pre .var {
+    color: #b3dcff;
+}
+
+pre .method {
+    color: #fff79d;
+}
+
+pre .str {
+    color: #bdff9d;
+}
+
+pre .comment {
+    color: #ddd;
+}
+
+pre .prim {
+    color: #8bb4fd;
+}
+
+/* Slide-specific styles */
+
+#noWebGL {
+    display: none;
+    font-style: italic;
+}
+
+.intro h3 {
+    margin-bottom: 0;
+}
+
+.intro h4 {
+    margin: 6em 0 1em;
+}
+
+.intro h3.show + h4 {
+    margin-top: 4em;
+}
+
+.instructions {
+    font-size: 1.1em;
+    text-shadow: 2px 2px 2px #333;
+    margin-bottom: 0.2em;
+}
+
+.navigation {
+    color: #FFF79D;
+}
+
+.workflow {
+    width: 80%;
+    display: block;
+    margin: 5% auto 0 auto;
+}
+
+.lights {
+    width: 80%;
+    margin: 15% auto 0 auto;
+}
+
+.lights figure {
+    float: left;
+    width: 15%;
+    margin: 0 5%;
+
+}
+
+.lights figure img {
+    width: 100%;
+}
+
+.ray {
+    margin-top: 70px;
+}
+
+.credits {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    color: #eee;
+}
+
+#roarSpeechBubble {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+}
+
+.shader-demo h4 {
+    margin-top: 2em;
+}
+
+.question-mark {
+    margin: 5% 0 1% 0;
+    font-size: 12em;
+    text-shadow: 3px 3px 3px #333;
+}
+
+.more li {
+    font-size: 0.5em;
+    line-height: 1.2em;
+}

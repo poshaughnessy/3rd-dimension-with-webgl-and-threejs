@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Materials</title>
+      <script src="../js/RequestAnimationFrame.js"></script>
+      <script src="../js/Three.js"></script>
+      <script src="../js/ImageUtils.js"></script>
+      <script src="../js/Detector.js"></script>
+      <script src="../fonts/helvetiker_regular.typeface.js"></script>
+      <style>
+          * {padding: 0; margin: 0}
+          body {background: #000;}
+      </style>
+      <script>
+          // Hacks to allow us to use the same script as in the main presentation!
+          var insideExamples = true;
+          var slides = {
+              showAnimations : [true]
+          };
+      </script>
+  </head>
+  <body>
+      <script id="vertex_shader" type="x-shader/x-vertex">
+
+          varying vec2 vUv;
+
+          void main() {
+              vUv = uv;
+              vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+              gl_Position = projectionMatrix * mvPosition;
+          }
+
+      </script>
+      <script id="fragment_shader" type="x-shader/x-fragment">
+
+          uniform float time;
+          uniform vec2 resolution;
+
+          varying vec2 vUv;
+
+          void main( void ) {
+
+              vec2 position = -1.0 + 2.0 * vUv;
+
+              float red = abs( sin( position.x * position.y + time / 5.0 ) );
+              float green = abs( sin( position.x * position.y + time / 4.0 ) );
+              float blue = abs( sin( position.x * position.y + time / 3.0 ) );
+              gl_FragColor = vec4( red, green, blue, 1.0 );
+
+          }
+
+      </script>
+    <div id="materialsContainer"></div>
+    <script src="js/02_materials.js"></script>
+  </body>
+</html>

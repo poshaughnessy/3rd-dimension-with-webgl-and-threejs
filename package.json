@@ -1,0 +1,11 @@
+{
+  "name": "webgl-techsummit-talk",
+  "version": "1.0.0",
+  "dependencies" : {
+    "express": "2.5.x"
+  },
+  "engines" : {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}

@@ -1,0 +1,827 @@
+<!--
+  Original Licence:
+
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+                 Brad Neuberg
+
+  Re-purposed and modified by Peter O'Shaughnessy
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebGL Slides</title>
+
+    <script src="js/jquery-1.7.1.js"></script>
+
+    <!-- Third party -->
+    <script src="js/RequestAnimationFrame.js"></script>
+    <script src="js/Three.js"></script>
+    <script src="js/Detector.js"></script>
+    <script src="js/Stats.js"></script>
+    <script src="js/ImageUtils.js"></script>
+    <script src="fonts/helvetiker_regular.typeface.js"></script>
+
+    <!-- Ours -->
+    <script src="js/slides.js"></script>
+    <script src="js/TRex.js"></script>
+    <script src="js/TRexData.js"></script>
+    <script src="js/TRexScene.js"></script>
+    <script src="js/TRexBootstrap.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="icon" type="image/png" href="img/trex32.png"/>
+</head>
+<body>
+
+    <div class="presentation">
+        <div id="logo"></div>
+        <div class="slides">
+
+            <div class="slide intro">
+                <h1>WebGL</h1>
+                <h2>3D Interfaces for the Web</h2>
+                <h3 id="noWebGL">Sorry, these slides require a browser that supports <a href="http://get.webgl.org/">WebGL</a></h3>
+                <h4>Peter O'Shaughnessy, Future Technologies</h4>
+                <p class="instructions">Best viewed in Chrome</p>
+                <p class="instructions navigation">Press up &amp; down arrow keys to navigate</p>
+            </div>
+
+            <div class="slide">
+                <h2>What's WebGL?</h2>
+                <div class="centre-wrap">
+                    <div data-build>
+                        <ul>
+                            <li>JavaScript API (no plugins!)</li>
+                            <li>Interactive 3D (or 2D) graphics in the browser</li>
+                            <li>Open standard based on OpenGL ES 2.0</li>
+                            <li>&ldquo;HTML5 family&rdquo;</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>What can I use it for?</h2>
+                <div class="centre-wrap">
+                    <ul>
+                        <div data-build>
+                            <div>
+                                <li>Games</li>
+                                <li>3D modelling &amp; simulations</li>
+                                <li>Data visualisation</li>
+                            </div>
+                            <li><em>New ways of presenting Pearson's content</em></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Examples</h2>
+                <div class="centre-wrap" data-build>
+                    <ul class="squeezeUp">
+                        <li><a href="http://maps3d.svc.nokia.com/webgl/index.html" class="externalLink">Maps</a> by Nokia</li>
+                        <li><a href="http://workshop.chromeexperiments.com/bookcase/" class="externalLink">Bookcase</a> by Google</li>
+                        <li><a href="http://www.zygotebody.com" class="externalLink">Human body</a> by Zygote</li>
+                        <li><a href="http://codeflow.org/webgl/craftscape/" class="externalLink">Landscape &amp; erosion</a> by Florian Boesch</li>
+                        <li><a href="http://www.solar-system-explorer.com/" class="externalLink">Solar System</a> by Roderick Kennedy</li>
+                        <li><a href="http://www.eveonline.com/universe/spaceships/absolution/" class="externalLink">Spaceships</a> by EVE Online</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Desktop Browsers</h2>
+                <div class="centre-wrap">
+                    <ul>
+                        <div data-build>
+                            <div>
+                                <li>Chrome 8+</li>
+                                <li>Firefox 4+</li>
+                                <li>Safari 5.1+ (switch on in menu)</li>
+                                <li>Opera 12+ (switch on in config)</li>
+                            </div>
+                            <li><span style="text-decoration: line-through">Internet Explorer</span> - <em>boo!</em></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Desktop Systems</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>Windows XP onwards</li>
+                        <li>Mac OS 10.6+</li>
+                        <li>Linux</li>
+                        <li>(Chrome OS)</li>
+                        <li><em>Depends on graphics cards & drivers</em></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Mobile</h2>
+                <div class="centre-wrap">
+                    <div data-build>
+                        <ul>
+                            <li>Android Browser from some vendors</li>
+                            <li>Firefox Mobile (Android)</li>
+                            <li>Opera Mobile (Android)</li>
+                            <li>Blackberry Playbook OS 2.0</li>
+                            <li>iAds...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>WebGL Pipeline</h2>
+                <img class="workflow" src="img/webgl-workflow.png" alt="WebGL workflow"/>
+            </div>
+
+            <div class="slide">
+                <h2>Coordinate system</h2>
+                <img class="coordinates" src="img/threejs-coordinates.png" alt="Coordinate system" width="40%"/>
+            </div>
+
+            <div class="slide">
+                <h2>Hello WebGL</h2>
+                <div class="centre-wrap">
+                    <ul>
+                        <div data-build>
+                            <div>
+                                <li>We're going to draw a 2D triangle</li>
+                                <li>As simple as raw WebGL gets...</li>
+                            </div>
+                            <li>...But <em>still not simple at all!</em></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Hello WebGL (1/6)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">canvas</span> = <span class="var">document</span>.<span class="method">getElementById</span>(<span class="str">'triangleCanvas'</span>);
+
+<span class="comment">// Get WebGL canvas context</span>
+<span class="kwd">var</span> <span class="var">gl</span> = <span class="var">canvas</span>.<span class="method">getContext</span>(<span class="str">'webgl'</span>) ||
+         <span class="var">canvas</span>.<span class="method">getContext</span>(<span class="str">'experimental-webgl'</span>);
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello WebGL (2/6)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">vertexPosBuffer</span> = <span class="var">gl</span>.<span class="method">createBuffer</span>();
+
+<span class="var">gl</span>.<span class="method">bindBuffer</span>(<span class="var">gl.ARRAY_BUFFER</span>, <span class="var">vertexPosBuffer</span>);
+
+<span class="kwd">var</span> <span class="var">vertices</span> = [
+    -<span class="prim">0.5</span>, -<span class="prim">0.5</span>,
+    <span class="prim">0.5</span>, -<span class="prim">0.5</span>,
+    <span class="prim">0</span>, <span class="prim">0.5</span>
+];
+
+<span class="var">gl</span>.<span class="method">bufferData</span>( <span class="var">gl.ARRAY_BUFFER</span>,
+        <span class="kwd">new</span> Float32Array(<span class="var">vertices</span>), <span class="var">gl.STATIC_DRAW</span> );
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello WebGL (3/6)</h2>
+                <pre>
+<span class="comment">// Shader code (GLSL)</span>
+
+<span class="kwd">var</span> <span class="var">vertexShaderSource</span> =
+        <span class="str">'attribute vec2 pos;'</span> +
+        <span class="str">'void main() {'</span> +
+        <span class="str">'  gl_Position = vec4(pos, 0, 1);'</span> + <span class="comment">// xyz(w)</span>
+        <span class="str">'}'</span>;
+
+<span class="kwd">var</span> <span class="var">fragmentShaderSource</span> =
+        <span class="str">'precision mediump float;'</span> +
+        <span class="str">'void main() {'</span> +
+        <span class="str">'  gl_FragColor = vec4( 0, 1.0, 0, 1);'</span> + <span class="comment">// rgba</span>
+        <span class="str">'}'</span>;
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello WebGL (4/6)</h2>
+                <pre>
+<span class="comment">// Create shaders</span>
+
+<span class="kwd">var</span> <span class="var">vertexShader</span> =
+        <span class="var">gl</span>.<span class="method">createShader</span>( <span class="var">gl.VERTEX_SHADER</span> );
+
+<span class="var">gl</span>.<span class="method">shaderSource</span>( <span class="var">vertexShader</span>, <span class="var">vertexShaderSource</span> );
+<span class="var">gl</span>.<span class="method">compileShader</span>( <span class="var">vertexShader</span> );
+
+<span class="kwd">var</span> <span class="var">fragmentShader</span> =
+        <span class="var">gl</span>.<span class="method">createShader</span>( <span class="var">gl.FRAGMENT_SHADER</span> );
+
+<span class="var">gl</span>.<span class="method">shaderSource</span>( <span class="var">fragmentShader</span>, <span class="var">fragmentShaderSource</span> );
+<span class="var">gl</span>.<span class="method">compileShader</span>( <span class="var">fragmentShader</span> );
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello WebGL (5/6)</h2>
+                <pre>
+<span class="comment">// Create program</span>
+
+<span class="kwd">var</span> <span class="var">program</span> = <span class="var">gl</span>.<span class="method">createProgram</span>();
+
+<span class="var">gl</span>.<span class="method">attachShader</span>( <span class="var">program</span>, <span class="var">vertexShader</span> );
+<span class="var">gl</span>.<span class="method">attachShader</span>( <span class="var">program</span>, <span class="var">fragmentShader</span> );
+
+<span class="var">gl</span>.<span class="method">linkProgram</span>( <span class="var">program</span> );
+
+<span class="var">gl</span>.<span class="method">useProgram</span>( <span class="var">program</span> );
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello WebGL (6/6)</h2>
+                <pre>
+<span class="comment">// Hook up buffer to program input</span>
+<span class="var">program.vertexPosAttrib</span> =
+        <span class="var">gl</span>.<span class="method">getAttribLocation</span>( <span class="var">program</span>, <span class="str">'pos'</span> );
+
+<span class="comment">// Tell it to read buffer when we start drawing</span>
+<span class="var">gl</span>.<span class="method">enableVertexAttribArray</span>( <span class="var">program.vertexPosAttrib</span> );
+
+<span class="comment">// Specify how program should read data from buffer</span>
+<span class="var">gl</span>.<span class="method">vertexAttribPointer</span>( <span class="var">program.vertexPosAttrib</span>,
+        <span class="prim">2</span>, <span class="var">gl.FLOAT</span>, <span class="prim">false</span>, <span class="prim">0</span>, <span class="prim">0</span> );
+
+<span class="comment">// Draw!</span>
+<span class="var">gl</span>.<span class="method">drawArrays</span>( <span class="var">gl.TRIANGLES</span>, <span class="prim">0</span>, <span class="prim">3</span> );
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Here it is!</h2>
+                <canvas id="triangleCanvas" width="300px" height="300px"></canvas>
+                <script src="examples/js/01_hellowebgl.js"></script>
+            </div>
+
+             <div class="slide">
+                 <h2>All that for a triangle!</h2>
+                 <div class="centre-wrap" data-build>
+                     <ul>
+                         <li>WebGL is low-level - best left to the experts!</li>
+                         <li>Thankfully there are libraries...</li>
+                     </ul>
+                 </div>
+             </div>
+
+            <div class="slide">
+                <h2>Introducing Three.js</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>The most popular JS library for 3D graphics</li>
+                        <li>WebGL renderer</li>
+                        <li>Also canvas &amp; SVG renderers - for simple stuff</li>
+                        <li><a href="http://mrdoob.github.com/three.js/" class="externalLink">mrdoob.github.com/three.js/</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide" id="demo0">
+                <h2>Materials</h2>
+                <div id="materialsContainer"></div>
+                <script id="vertex_shader" type="x-shader/x-vertex">
+
+                    varying vec2 vUv;
+
+                    void main() {
+                    vUv = uv;
+                    vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+                    gl_Position = projectionMatrix * mvPosition;
+                    }
+
+                </script>
+                <script id="fragment_shader" type="x-shader/x-fragment">
+
+                    uniform float time;
+                    uniform vec2 resolution;
+
+                    varying vec2 vUv;
+
+                    void main( void ) {
+
+                    vec2 position = -1.0 + 2.0 * vUv;
+
+                    float red = abs( sin( position.x * position.y + time / 5.0 ) );
+                    float green = abs( sin( position.x * position.y + time / 4.0 ) );
+                    float blue = abs( sin( position.x * position.y + time / 3.0 ) );
+                    gl_FragColor = vec4( red, green, blue, 1.0 );
+
+                    }
+
+                </script>
+                <script>
+                    insideExamples = false;
+                </script>
+                <script src="examples/js/02_materials.js"></script>
+            </div>
+
+            <div class="slide">
+                <h2>Hello Three.js</h2>
+                <div class="centre-wrap">
+                    <ul>
+                        <li>We'll make a spinning cube</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Hello Three.js (1/4)</h2>
+                <pre>
+<span class="comment">// Create a WebGL renderer</span>
+<span class="kwd">var</span> <span class="var">renderer</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">WebGLRenderer</span>();
+
+<span class="var">renderer</span>.<span class="method">setSize</span>( <span class="var">width</span>, <span class="var">height</span> );
+
+<span class="kwd">var</span> <span class="var">container</span> = <span class="var">document</span>.<span class="method">getElementById</span>(
+        <span class="str">'spinningCubeContainer'</span>);
+
+<span class="comment">// Add generated &lt;canvas&gt; to page</span>
+<span class="var">container</span>.<span class="method">appendChild</span>( <span class="var">renderer.domElement</span> );
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello Three.js (2/4)</h2>
+                <pre>
+<span class="comment">// Make a scene</span>
+<span class="kwd">var</span> <span class="var">scene</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">Scene</span>();
+
+<span class="comment">// Create a camera</span>
+<span class="kwd">var</span> <span class="var">camera</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">PerspectiveCamera</span>(
+        <span class="prim">45</span>,           <span class="comment">// Field of View</span>
+        <span class="var">width</span>/<span class="var">height</span>, <span class="comment">// Aspect ratio</span>
+        <span class="prim">1</span>,            <span class="comment">// zNear</span>
+        <span class="prim">10000</span>         <span class="comment">// zFar</span>
+    );
+
+<span class="var">camera.position.z</span> = <span class="prim">300</span>;
+
+<span class="comment">// Add it to the scene</span>
+<span class="var">scene</span>.<span class="method">add</span>( <span class="var">camera</span> );
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello Three.js (3/4)</h2>
+                <pre>
+<span class="comment">// Make a cube</span>
+<span class="kwd">var</span> <span class="var">cube</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">Mesh</span>(
+        <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">CubeGeometry</span>( <span class="prim">50</span>, <span class="prim">50</span>, <span class="prim">50</span> ), <span class="comment">// w,h,d</span>
+        <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">MeshLambertMaterial</span>( {<span class="var">color</span>: 0xFF0000} ));
+
+<span class="comment">// Add it to the scene</span>
+<span class="var">scene</span>.<span class="method">add</span>( <span class="var">cube</span> );
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Hello Three.js (4/4)</h2>
+                <pre>
+<span class="comment">// Make it spin</span>
+<span class="kwd">function</span> <span class="method">animate</span>() {
+
+    <span class="comment">// Angles are in radians</span>
+    <span class="var">cube.rotation.y</span> += <span class="prim">0.1</span>;
+
+    <span class="comment">// Render the scene from the camera</span>
+    <span class="var">renderer</span>.<span class="method">render</span>(<span class="var">scene</span>, <span class="var">camera</span>);
+
+    <span class="comment">// Call each time browser's ready for next frame</span>
+    <span class="method">requestAnimationFrame</span>( <span class="var">animate</span> );
+
+}
+
+<span class="comment">// Start animation going</span>
+<span class="method">animate</span>();
+                </pre>
+            </div>
+
+            <div class="slide" id="demo1">
+                <h2>Here it is!</h2>
+                <div id="spinningCubeContainer"></div>
+                <script src="examples/js/03_hellothreejs.js"></script>
+                <p>(But it's not red!)</p>
+            </div>
+
+            <div class="slide">
+                <h2>Let there be lights</h2>
+                <div data-build>
+                    <div class="lights">
+                        <figure>
+                            <img src="img/lights-ambient.png" alt="Ambient"/>
+                            <figcaption>Ambient</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="img/lights-directional.png" alt="Directional"/>
+                            <figcaption>Directional</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="img/lights-point.png" alt="Point"/>
+                            <figcaption>Point</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="img/lights-spot.png" alt="Spotlight"/>
+                            <figcaption>Spotlight</figcaption>
+                        </figure>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Let there be lights</h2>
+                <pre>
+<span class="comment">// Ambient light</span>
+
+<span class="kwd">var</span> <span class="var">ambientLight</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">AmbientLight</span>( 0x333333 );
+<span class="var">scene</span>.<span class="method">add</span>( <span class="var">ambientLight</span> );
+
+<span class="comment">// Spotlight</span>
+
+<span class="comment">// color, intensity, distance...</span>
+<span class="kwd">var</span> <span class="var">spotLight</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">SpotLight</span>( 0xFFFFFF, <span class="prim">0.8</span>, <span class="prim">300</span> );
+
+<span class="var">spotLight.position</span>.<span class="method">set</span>( <span class="prim">50</span>, <span class="prim">50</span>, <span class="prim">300</span> ); <span class="comment">// x, y, z</span>
+<span class="var">spotLight.target.position</span>.<span class="method">set</span>( <span class="prim">0</span>, <span class="prim">0</span>, <span class="prim">0</span> );
+
+<span class="var">scene</span>.<span class="method">add</span>( <span class="var">spotLight</span> );
+                </pre>
+            </div>
+
+            <div class="slide" id="demo2">
+                <h2>Let there be lights</h2>
+                <div id="spinningCubeLightsContainer"></div>
+                <script src="examples/js/04_lettherebelights.js"></script>
+            </div>
+
+            <div class="slide">
+                <h2>Shadows</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>Work with spotlights &amp; directional lights</li>
+                        <li>Enable globally, per-light and per-object</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Shadows</h2>
+                <pre>
+<span class="comment">// Enable globally</span>
+<span class="var">renderer.shadowMapEnabled</span> = <span class="prim">true</span>;
+
+<span class="comment">// Enable on the spotlight</span>
+<span class="var">spotLight.castShadow</span> = <span class="prim">true</span>;
+
+<span class="comment">// Enable on objects</span>
+<span class="var">cube.castShadow</span> = <span class="prim">true</span>;
+<span class="var">anotherCube.receiveShadow</span> = <span class="prim">true</span>;
+                </pre>
+            </div>
+
+            <div class="slide" id="demo3">
+                <h2>Shadows</h2>
+                <div id="spinningCubeShadowContainer"></div>
+                <script src="examples/js/05_shadows.js"></script>
+            </div>
+
+            <div class="slide">
+                <h2>Adding models</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>Built-in support for Three.js JSON format</li>
+                        <li>Loaders for Collada (.DAE), Wavefront (.OBJ) &amp; more</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Adding a dinosaur (1/2)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">loader</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">JSONLoader</span>();
+
+<span class="kwd">var</span> <span class="var">mesh</span>;
+
+<span class="var">loader</span>.<span class="method">load</span>(<span class="str">'trex.js'</span>, <span class="kwd">function</span>( <span class="var">geometry</span> ) {
+
+    <span class="var">mesh</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">Mesh</span>( <span class="var">geometry</span>,
+                <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">MeshFaceMaterial</span>() );
+
+    <span class="var">scene</span>.<span class="method">add</span>( <span class="var">mesh</span> );
+
+    <span class="method">animate</span>();
+
+});
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Adding a dinosaur (2/2)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">animate</span> = <span class="kwd">function</span>() {
+
+    <span class="var">mesh.rotation.y</span> += <span class="prim">0.05</span>;
+
+    <span class="var">renderer</span>.<span class="method">render</span>( <span class="var">scene</span>, <span class="var">camera</span> );
+
+    <span class="method">requestAnimationFrame</span>( <span class="var">animate</span> );
+};
+                </pre>
+            </div>
+
+            <div class="slide" id="demo4">
+                <h2>Adding a dinosaur</h2>
+                <div id="dinosaurContainer"></div>
+                <script src="examples/js/06_addingadinosaur.js"></script>
+                <p class="credits">Dinosaur model &copy;Dorling Kindersley</p>
+            </div>
+
+            <div class="slide">
+                <h2>Where's the interaction?</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>Keyboard controls - easy</li>
+                        <li>HTML control panel - easy</li>
+                        <li>Click events in 3D space?</li>
+                        <li>Registering clicks on objects doesn't come for free</li>
+                        <li>Nice example: <a href="http://mrdoob.github.com/three.js/examples/canvas_interactive_cubes.html" class="externalLink">Clickable Objects</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="img/ray1.png" class="ray" alt="Ray 1" width="60%"/>
+                <p class="credits">Image credit: <a href="http://www.yomotsu.net/" class="externalLink">yomotsu</a></p>
+            </div>
+
+            <div class="slide">
+                <img src="img/ray2.png" class="ray" alt="Ray 2" width="60%"/>
+                <p class="credits">Image credit: <a href="http://www.yomotsu.net/" class="externalLink">yomotsu</a></p>
+            </div>
+
+            <div class="slide">
+                <h2>Click &lsquo;n&rsquo; roar (1/3)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">projector</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">Projector</span>();
+
+<span class="kwd">function</span> <span class="method">onMouseDown</span>( <span class="var">event</span> ) {
+
+    <span class="kwd">var</span> <span class="var">clickX</span> = <span class="var">event.clientX</span> - <span class="var">canvasOffsetLeft;</span>
+    <span class="kwd">var</span> <span class="var">clickY</span> = <span class="var">event.clientY</span> - <span class="var">canvasOffsetTop;</span>
+
+    <span class="comment">// Viewport coordinates range from -1 to +1</span>
+    <span class="kwd">var</span> <span class="var">vector</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">Vector3</span>( ( <span class="var">clickX</span> / <span class="var">width</span> ) *<span class="prim">2</span> -<span class="prim">1</span>,
+                                    -( <span class="var">clickY</span> / <span class="var">height</span> ) *<span class="prim">2</span> +<span class="prim">1</span>,
+                                    <span class="prim">0.5</span> );
+
+    <span class="comment">// 'Unproject' from 2D to 3D</span>
+    <span class="var">projector</span>.<span class="method">unprojectVector</span>( <span class="var">vector</span>, <span class="var">camera</span> );
+    ...
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Click &lsquo;n&rsquo; roar (2/3)</h2>
+                <pre>
+    ...
+    <span class="kwd">var</span> <span class="var">ray</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">Ray</span>( <span class="var">camera.position</span>,
+            <span class="var">vector</span>.<span class="method">subSelf</span>( <span class="var">camera.position</span> ).<span class="method">normalize</span>() );
+
+    <span class="kwd">var</span> <span class="var">intersects</span> = <span class="var">ray</span>.<span class="method">intersectObjects</span>( [<span class="var">mesh</span>] );
+
+    <span class="kwd">if</span> ( <span class="var">intersects.length</span> > <span class="prim">0</span> ) {
+        <span class="comment">// We only have 1 object - must've clicked dinosaur</span>
+        <span class="method">roar</span>();
+    }
+
+} <span class="comment">// End of onMouseDown</span>
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Click &lsquo;n&rsquo; roar (3/3)</h2>
+                <pre>
+<span class="kwd">function</span> <span class="method">roar</span>() {
+
+    <span class="comment">// Recreate each time because Chrome won't replay!</span>
+    <span class="kwd">var</span> <span class="var">roarSound</span> = <span class="kwd">new</span> <span class="method">Audio</span>(<span class="str">'media/dinosaur.mp3'</span>);
+    <span class="var">roarSound</span>.<span class="method">play</span>();
+
+    <span class="var">speechBubble.className</span> = <span class="str">''</span>; <span class="comment">// show</span>
+    <span class="var">window</span>.<span class="method">setTimeout</span>(<span class="kwd">function</span>() {
+        <span class="var">speechBubble.className</span> = <span class="str">'hidden'</span>;
+    }, <span class="prim">1500</span>);
+}
+                </pre>
+            </div>
+
+            <div class="slide" id="demo5">
+                <h2>Click the dinosaur</h2>
+                <img src="img/roar.png" id="roarSpeechBubble" class="hidden" alt="Roar!"/>
+                <div id="dinosaurRoarContainer"></div>
+                <script src="examples/js/07_clicknroar.js"></script>
+                <p class="credits">Dinosaur model &copy;Dorling Kindersley</p>
+            </div>
+
+            <div class="slide">
+                <h2>&lsquo;How to protect my content?&rsquo;</h2>
+                <div class="centre-wrap">
+                    <ul data-build>
+                        <li>No media delivered to a user is truly secure</li>
+                        <li>Not a new problem</li>
+                        <li>Content vs service</li>
+                        <li>Law vs technology</li>
+                        <li>Good read: <a href="http://bit.ly/protect-webgl" class="externalLink">bit.ly/protect-webgl</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>CSS Filters</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>Shaders for 'normal' HTML content, through CSS</li>
+                        <li>Powerful effects: blur, warp, Instagram-style filters...</li>
+                        <li><a href="http://html5-demos.appspot.com/static/css/filters/index.html" class="externalLink">In-built filter effects</a></li>
+                        <li>Custom filters new - Canary/nightlies only</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Example</h2>
+                <pre>
+<span class="kwd">&lt;style></span>
+    <span class="comment">#shaderDemo:hover</span> {
+        <span class="method">-webkit-filter</span>: custom( url(shaders/sphere.vs)
+                                mix( url(shaders/sphere.fs)
+                                normal
+                                source-atop),
+                        16 32,
+                        amount 1,
+                        sphereRadius 0.35,
+                        lightPosition 0.0 0.0 1.0 );
+    }
+<span class="kwd">&lt;/style></span>
+                </pre>
+            </div>
+
+            <div class="slide shader-demo">
+                <style>
+                    #shaderDemo {
+                        margin-top: 1em;
+                        width: 384px;
+                        height: 384px;
+                        -webkit-filter: custom( url(examples/shaders/sphere.vs)
+                        mix( url(examples/shaders/sphere.fs)
+                            normal
+                            source-atop),
+                        16 32,
+                        amount 0,
+                        sphereRadius 0.35,
+                        lightPosition 0.0 0.0 1.0 );
+                    }
+                    #shaderDemo:hover {
+                        -webkit-filter: custom( url(examples/shaders/sphere.vs)
+                        mix( url(examples/shaders/sphere.fs)
+                            normal
+                            source-atop),
+                        16 32,
+                        amount 1,
+                        sphereRadius 0.35,
+                        lightPosition 0.0 0.0 1.0 );
+                    }
+                </style>
+                <h4>In <a href="http://blogs.adobe.com/webplatform/2012/09/21/css-custom-filters-now-available-under-flag-in-chrome-canary/" class="externalLink">Chrome Canary with flag enabled</a>,<br/> hover over the image</h4>
+                <img id="shaderDemo" src="img/pearson-icon-512.png"/>
+            </div>
+
+            <div class="slide">
+                <h2>Debugging</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>It's hard...</li>
+                        <li><em>WebGL Inspector</em> Chrome extension - not great</li>
+                        <li>Three.js documentation is <a href="http://mrdoob.github.com/three.js/docs/51/#ColorUtils" class="externalLink">poor</a> - <em>use the source</em></li>
+                        <li>Three.js community very helpful</li>
+                        <li>E.g. <a href="examples/08_debug.html" class="externalLink">rendering before image load</a>. And <a href="examples/08_debug-fixed.html" class="externalLink">fixed</a>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Quirks</h2>
+                <div class="centre-wrap">
+                    <ul data-build data-fadeout>
+                        <li>Performance can depend on canvas size!</li>
+                        <li>Shadows (used to) kill Safari performance</li>
+                        <li>Shadow map with no spotlights makes WebGL mad</li>
+                        <li>Restarting browser sometimes fixes things!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Here's one we made earlier...</h2>
+                <div class="centre-wrap">
+                    <ul>
+                        <li><a href="http://pft-lon.pearson.com/trex/" class="externalLink">TRex [internal Pearson link]</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Wrapping up</h2>
+                <div class="centre-wrap">
+                    <ul data-build>
+                        <li>The Web is becoming more immersive</li>
+                        <li>Use WebGL to add a 3rd dimension to your content</li>
+                        <li>An up &amp; coming standard...</li>
+                        <li>Can use in production now - with fallbacks</li>
+                        <li><em>What can we come up with? :-)</em></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide more">
+                <h2>Where next?</h2>
+                <div class="centre-wrap">
+                    <ul>
+                        <li>
+                            TRex [internal Pearson link]<br/>
+                            <a href="http://pft-lon.pearson.com/trex/">pft-lon.pearson.com/trex/</a>
+                        </li>
+                        <li>
+                            TRex source code [internal Pearson link]<br/>
+                            <a href="http://githubenterprise.pearson.com/Pearson-FutureTech/trex">githubenterprise.pearson.com/Pearson-FutureTech/trex</a>
+                        </li>
+                        <li>
+                            An introduction to WebGL | Opera Dev<br/>
+                            <a href="http://dev.opera.com/articles/view/an-introduction-to-webgl/">dev.opera.com/articles/view/an-introduction-to-webgl/</a>
+                        </li>
+                        <li>
+                            Basics of Three.js | Ilmari Heikkinen<br/>
+                            <a href="http://fhtr.org/BasicsOfThreeJS/">fhtr.org/BasicsOfThreeJS/</a>
+                        </li>
+                        <li>
+                            Getting Started with Three.js | HTML5 Rocks<br/>
+                            <a href="http://www.html5rocks.com/en/tutorials/three/intro/">www.html5rocks.com/en/tutorials/three/intro/</a>
+                        </li>
+                        <li>
+                            Three.js Walking Map<br/>
+                            <a href="http://ushiroad.com/3j/">ushiroad.com/3j/</a>
+                        </li>
+                        <li>
+                            WebGL: Up and Running [Book]<br/>
+                            <a href="http://shop.oreilly.com/product/0636920024729.do">shop.oreilly.com/product/0636920024729.do</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--
+            <div class="slide">
+                <h2>Questions</h2>
+                <p class="question-mark">?</p>
+                <p class="this-link-again"><a href="http://bit.ly/webgl-tech-summit">bit.ly/webgl-tech-summit</a></p>
+            </div>
+            -->
+
+        </div>
+    </div>
+
+    <footer><span class="alwayslearning"></span> <span class="pearson"></span></footer>
+    <div id="viewport"></div>
+
+</body>
+</html>
