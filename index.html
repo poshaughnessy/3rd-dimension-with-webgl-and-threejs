@@ -67,7 +67,7 @@
                     <div data-build>
                         <ul>
                             <li>JavaScript API (no plugins!)</li>
-                            <li>Interactive 3D (or 2D) graphics in the browser</li>
+                            <li>Interactive graphics in the browser (2D or 3D)</li>
                             <li>Open standard based on OpenGL ES 2.0</li>
                             <li>&ldquo;HTML5 family&rdquo;</li>
                         </ul>
@@ -84,23 +84,55 @@
                                 <li>Games</li>
                                 <li>3D modelling &amp; simulations</li>
                                 <li>Data visualisation</li>
+                                <li>Interactive music videos</li>
                             </div>
-                            <li><em>New ways of presenting Pearson's content</em></li>
+                            <li><em>New ways of presenting your content</em></li>
                         </div>
                     </ul>
                 </div>
             </div>
 
             <div class="slide">
-                <h2>Examples</h2>
+                <h2 class="v-centre">Top 3 Coolest Examples</h2>
+            </div>
+
+            <div class="slide">
+                <h2>3. Still on the podium</h2>
+                <div data-build>
+                    <div>
+                        <img src="img/photobooth2.png" alt="Photobooth" class="border"/>
+                        <p><a href="http://webcamtoy.com/" class="externalLink">webcamtoy.com/</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>2. A close second!</h2>
+                <div data-build>
+                    <div>
+                        <img src="img/100000-stars.png" alt="100,000 Stars" class="border"/>
+                        <p><a href="http://workshop.chromeexperiments.com/stars/" class="externalLink">workshop.chromeexperiments.com/stars/</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>1. The best example ever...</h2>
+                <div data-build>
+                    <h3>Let's wait til the end!</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Other good examples</h2>
                 <div class="centre-wrap" data-build>
                     <ul class="squeezeUp">
-                        <li><a href="http://maps3d.svc.nokia.com/webgl/index.html" class="externalLink">Maps</a> by Nokia</li>
-                        <li><a href="http://workshop.chromeexperiments.com/bookcase/" class="externalLink">Bookcase</a> by Google</li>
-                        <li><a href="http://www.zygotebody.com" class="externalLink">Human body</a> by Zygote</li>
-                        <li><a href="http://codeflow.org/webgl/craftscape/" class="externalLink">Landscape &amp; erosion</a> by Florian Boesch</li>
-                        <li><a href="http://www.solar-system-explorer.com/" class="externalLink">Solar System</a> by Roderick Kennedy</li>
-                        <li><a href="http://www.eveonline.com/universe/spaceships/absolution/" class="externalLink">Spaceships</a> by EVE Online</li>
+                        <li><a href="http://hexgl.bkcore.com/">HexGL</a></li>
+                        <li><a href="http://ro.me" class="externalLink">3 Dreams of Black</a></li>
+                        <li><a href="http://thewildernessdowntown.com" class="externalLink">The Wilderness Downtown</a></li>
+                        <li><a href="http://maps3d.svc.nokia.com/webgl/index.html" class="externalLink">Nokia Maps</a></li>
+                        <li><a href="http://www.zygotebody.com" class="externalLink">Zygote Human body</a></li>
+                        <li>Lots more on <a href="http://www.chromeexperiments.com/" class="externalLink">Chrome Experiments</a></li>
                     </ul>
                 </div>
             </div>
@@ -130,7 +162,7 @@
                         <li>Mac OS 10.6+</li>
                         <li>Linux</li>
                         <li>(Chrome OS)</li>
-                        <li><em>Depends on graphics cards & drivers</em></li>
+                        <li><em>Can also depend on graphics card & drivers</em></li>
                     </ul>
                 </div>
             </div>
@@ -144,9 +176,30 @@
                             <li>Firefox Mobile (Android)</li>
                             <li>Opera Mobile (Android)</li>
                             <li>Blackberry Playbook OS 2.0</li>
-                            <li>iAds...</li>
+                            <li><span style="text-decoration: line-through">iOS</span> - <em>boo!</em> - except iAds</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Alternatives</h2>
+                <div class="centre-wrap">
+                    <ul>
+                        <div data-build>
+                            <div>
+                                <li>You can detect support and add a message</li>
+                                <li>Provide an alternative (always, unless just a demo)</li>
+                                <li>You could try a different renderer... (more later)</li>
+                                <!--
+                                    <li>Three.js Software renderer (very new)</li>
+                                    <li>Three.js CSS3DRenderer (maybe)</li>
+                                -->
+                            </div>
+                            <li><em>You can use it in production now (if you're l33t!)</em></li>
+                            <li>E.g. <a href="http://www.eveonline.com/universe/spaceships/absolution/" class="externalLink">EVE Online Spaceships</a></li>
+                        </div>
+                    </ul>
                 </div>
             </div>
 
@@ -730,9 +783,9 @@
                 <div class="centre-wrap" data-build>
                     <ul>
                         <li>It's hard...</li>
-                        <li><em>WebGL Inspector</em> Chrome extension - not great</li>
-                        <li>Three.js documentation is <a href="http://mrdoob.github.com/three.js/docs/51/#ColorUtils" class="externalLink">poor</a> - <em>use the source</em></li>
-                        <li>Three.js community very helpful</li>
+                        <li><em>WebGL Inspector</em> Chrome extension - alpha</li>
+                        <li>Three.js documentation can be <a href="http://mrdoob.github.com/three.js/docs/51/#ColorUtils" class="externalLink">lacking</a> - <em>use the source</em></li>
+                        <li>Three.js community <a href="http://stackoverflow.com/questions/tagged/three.js">very helpful</a></li>
                         <li>E.g. <a href="examples/08_debug.html" class="externalLink">rendering before image load</a>. And <a href="examples/08_debug-fixed.html" class="externalLink">fixed</a>.</li>
                     </ul>
                 </div>
@@ -751,11 +804,12 @@
             </div>
 
             <div class="slide">
-                <h2>Here's one we made earlier...</h2>
-                <div class="centre-wrap">
-                    <ul>
-                        <li><a href="http://pft-lon.pearson.com/trex/" class="externalLink">TRex [internal Pearson link]</a></li>
-                    </ul>
+                <h2>And finally... here's number 1</h2>
+                <div data-build>
+                    <div>
+                        <img src="img/doom3-gangnam-style.png" alt="Doom 3 Gangnam Style" class="border"/>
+                        <p><a href="http://apps.playcanvas.com/will/doom3/gangnamstyle" class="externalLink">apps.playcanvas.com/will/doom3/gangnamstyle</a></p>
+                    </div>
                 </div>
             </div>
 
@@ -767,7 +821,7 @@
                         <li>Use WebGL to add a 3rd dimension to your content</li>
                         <li>An up &amp; coming standard...</li>
                         <li>Can use in production now - with fallbacks</li>
-                        <li><em>What can we come up with? :-)</em></li>
+                        <li><em>What can you come up with? :-)</em></li>
                     </ul>
                 </div>
             </div>
@@ -776,14 +830,6 @@
                 <h2>Where next?</h2>
                 <div class="centre-wrap">
                     <ul>
-                        <li>
-                            TRex [internal Pearson link]<br/>
-                            <a href="http://pft-lon.pearson.com/trex/">pft-lon.pearson.com/trex/</a>
-                        </li>
-                        <li>
-                            TRex source code [internal Pearson link]<br/>
-                            <a href="http://githubenterprise.pearson.com/Pearson-FutureTech/trex">githubenterprise.pearson.com/Pearson-FutureTech/trex</a>
-                        </li>
                         <li>
                             An introduction to WebGL | Opera Dev<br/>
                             <a href="http://dev.opera.com/articles/view/an-introduction-to-webgl/">dev.opera.com/articles/view/an-introduction-to-webgl/</a>
