@@ -122,6 +122,10 @@ em {
     padding-top: 25%;
 }
 
+.small {
+    font-size: 0.7em;
+}
+
 .presentation {
     position: absolute;
     height: 100%;
@@ -383,6 +387,10 @@ li {
     background: url('../img/cube-bullet.png') no-repeat 0 50%;
     text-shadow: 2px 2px 2px #333;
     line-height: 1.7em;
+}
+
+.squeezeUp {
+    margin-top: -20px;
 }
 
 .squeezeUp li {
