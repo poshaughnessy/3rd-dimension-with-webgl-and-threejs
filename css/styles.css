@@ -57,34 +57,42 @@ table {
 
 @font-face {
     font-family: 'Arimo';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Arimo'), local('Arimo-Regular'), url('../fonts/Arimo/Arimo-Regular.ttf') format('truetype');
+    src: url('../fonts/Arimo/Arimo-Regular.ttf');
 }
 
 @font-face {
-    font-family: 'Arimo Bold';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Arimo'), local('Arimo-Bold'), url('../fonts/Arimo/Arimo-Bold.ttf') format('truetype');
+    font-family: 'Arimo';
+    font-weight: bold;
+    src: url('../fonts/Arimo/Arimo-Bold.ttf');
 }
 
 @font-face {
-    font-family: 'Arimo Italic';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Arimo'), local('Arimo-Italic'), url('../fonts/Arimo/Arimo-Italic.ttf') format('truetype');
+    font-family: 'Arimo';
+    font-style: italic;
+    src: url('../fonts/Arimo/Arimo-Italic.ttf');
 }
 
 @font-face {
-    font-family: 'Arimo Bold Italic';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Arimo'), local('Arimo-BoldItalic'), url('../fonts/Arimo/Arimo-BoldItalic.ttf') format('truetype');
+    font-family: 'Arimo';
+    font-style: italic;
+    font-weight: bold;
+    src: url('../fonts/Arimo/Arimo-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Monda';
+    src: url('../fonts/Monda/Monda-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Monda';
+    font-weight: bold;
+    src: url('../fonts/Monda/Monda-Bold.ttf');
 }
 
 body {
-    font: 24px 'Arimo Bold', Arial, Helvetica, sans-serif;
+    font: 24px 'Arimo', Arial, Helvetica, sans-serif;
+    font-weight: bold;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -233,7 +241,7 @@ body {
 }
 
 h1 {
-    font-family: 'Arimo', arial, sans-serif;
+    font-family: "Monda", arial, sans-serif;
     font-size: 4em;
     font-weight: bold;
     padding: 0;
@@ -242,7 +250,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Arimo', arial, sans-serif;
+    font-family: "Monda", arial, sans-serif;
     font-size: 1.8em;
     font-weight: bold;
     padding: 0;
@@ -251,23 +259,19 @@ h2 {
     width: 100%;
 }
 
-h3, h4 {
-    font-family: "Arimo Bold", arial, helvetica, sans-serif;
-    text-shadow: 2px 2px 2px #333;
-}
-
 h3 {
+    font-family: "Monda", arial, helvetica, sans-serif;
+    text-shadow: 2px 2px 2px #333;
     margin: 4% 0;
     font-size: 1.5em;
 }
 
 h4 {
+    font-family: "Arimo", arial, helvetica, sans-serif;
+    text-shadow: 2px 2px 2px #333;
+    font-weight: bold;
     margin: 0.5em 0;
     font-size: 1.2em;
-}
-
-em {
-    font-family: "Arimo Bold Italic", arial, helvetica, sans-serif;
 }
 
 #logo {
