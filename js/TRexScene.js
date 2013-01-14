@@ -12,8 +12,8 @@ TREX.Scene = function() {
 
     var FOV = 25;
 
-    // Camera points down 60 degrees (defined in radians; to convert degrees to radians multiply by Pi/180)
-    var CAMERA_ANGLE = -1.04719755;
+    // Camera points down 45 degrees (defined in radians; to convert degrees to radians multiply by Pi/180)
+    var CAMERA_ANGLE = -0.78539816339;
 
     var HEIGHT_MAP_IMAGE = 'heightmap/heightmap-allperiods.jpg'
 
@@ -51,7 +51,7 @@ TREX.Scene = function() {
 
         camera = new THREE.PerspectiveCamera( FOV, aspect, NEAR, FAR );
 
-        camera.position = new THREE.Vector3( 0, 20000, 13000 ); // X, Y, Z
+        camera.position = new THREE.Vector3( 0, 17250, 19000 ); // X, Y, Z
 
         camera.rotation.x = CAMERA_ANGLE;
 
