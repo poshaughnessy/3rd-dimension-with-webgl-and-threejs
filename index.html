@@ -629,10 +629,40 @@
             </div>
 
             <div class="slide">
-                <h2>FirstPersonControls example</h2>
+                <h2>FlyControls example (1/2)</h2>
                 <pre>
-todo
+var controls = new THREE.FlyControls( camera );
+
+controls.movementSpeed = 30;
+controls.rollSpeed = 0.1;
+controls.dragToLook = true;
                 </pre>
+            </div>
+
+            <div class="slide">
+                <h2>FlyControls example (2/2)</h2>
+                <pre>
+var clock = new THREE.Clock();
+
+var animate = function() {
+
+    ...
+
+    var delta = clock.getDelta();
+
+    controls.update(delta);
+
+    ...
+
+}
+                </pre>
+            </div>
+
+            <div class="slide" id="demo5">
+                <h2>Fly-By Dinosaur</h2>
+                <div id="flyByDinoContainer"></div>
+                <script src="examples/js/07_dinosaurflyby.js"></script>
+                <p class="credits">Dinosaur model &copy;Dorling Kindersley</p>
             </div>
 
             <div class="slide">
@@ -710,11 +740,11 @@ todo
                 </pre>
             </div>
 
-            <div class="slide" id="demo5">
+            <div class="slide" id="demo6">
                 <h2>Click the dinosaur</h2>
                 <img src="img/roar.png" id="roarSpeechBubble" class="hidden" alt="Roar!"/>
                 <div id="dinosaurRoarContainer"></div>
-                <script src="examples/js/07_clicknroar.js"></script>
+                <script src="examples/js/08_clicknroar.js"></script>
                 <p class="credits">Dinosaur model &copy;Dorling Kindersley</p>
             </div>
 
@@ -843,7 +873,7 @@ todo
                         <li><em>WebGL Inspector</em> Chrome extension - alpha</li>
                         <li>Three.js docs can be <a href="http://mrdoob.github.com/three.js/docs/51/#ColorUtils" class="externalLink">lacking</a> - <em>use the source</em></li>
                         <li>Three.js community <a href="http://stackoverflow.com/questions/tagged/three.js">very helpful</a></li>
-                        <li>Example: <a href="examples/08_debug.html" class="externalLink">rendering before image load</a>. And <a href="examples/08_debug-fixed.html" class="externalLink">fixed</a>.</li>
+                        <li>Example: <a href="examples/09_debug.html" class="externalLink">rendering before image load</a>. And <a href="examples/09_debug-fixed.html" class="externalLink">fixed</a>.</li>
                     </ul>
                 </div>
             </div>

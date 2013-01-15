@@ -574,3 +574,9 @@ pre .prim {
     font-size: 0.6em;
     line-height: 1.2em;
 }
+
+#flyByDinoContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}

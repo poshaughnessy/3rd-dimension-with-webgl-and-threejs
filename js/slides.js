@@ -332,10 +332,10 @@ var Slides = function(slideChangeCallback) {
         if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
 
         switch (e.keyCode) {
-          case 37: // left arrow
+          //case 37: // left arrow
           case 38: // up arrow
             this.prev(); break;
-          case 39: // right arrow
+          //case 39: // right arrow
           case 40: // down arrow
           case 32: // space
             this.next(); break;

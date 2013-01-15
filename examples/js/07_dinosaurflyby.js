@@ -2,20 +2,20 @@
 
     if( !Detector.webgl ) return;
 
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
     // Create a WebGL renderer
     var renderer = new THREE.WebGLRenderer();
 
-    renderer.setSize( window.innerHeight * 0.7, window.innerHeight * 0.7 );
+    renderer.setSize( width, height );
 
     // Add generated <canvas> to page
-    var container = document.getElementById('firstPersonDinoContainer');
+    var container = document.getElementById('flyByDinoContainer');
     container.appendChild( renderer.domElement );
 
     // Make a scene
     var scene = new THREE.Scene();
-
-    var width = window.innerHeight * 0.8;
-    var height = window.innerHeight * 0.8;
 
     // Create a camera
     var camera = new THREE.PerspectiveCamera(
@@ -25,13 +25,14 @@
             10000         // zFar
     );
 
-    camera.position.z = 300;
+    camera.position.y = 100;
+    camera.position.z = 400;
 
     // Add it to the scene
     scene.add( camera );
 
     // Controls
-    controls = new THREE.FlyControls( camera );
+    var controls = new THREE.FlyControls( camera );
 
     controls.movementSpeed = 30;
     controls.rollSpeed = 0.1;
@@ -61,7 +62,7 @@
 
         mesh.scale.set(10, 10, 10);
         mesh.rotation.y = Math.PI / 2;
-        mesh.position.set( 0, -50, 0 );
+        mesh.position.set( 0, 0, 0 );
 
         scene.add( mesh );
 

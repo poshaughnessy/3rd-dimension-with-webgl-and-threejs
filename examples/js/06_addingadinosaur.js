@@ -14,8 +14,8 @@
     // Make a scene
     var scene = new THREE.Scene();
 
-    var width = window.innerHeight * 0.8;
-    var height = window.innerHeight * 0.8;
+    var width = window.innerHeight * 0.7;
+    var height = window.innerHeight * 0.7;
 
     // Create a camera
     var camera = new THREE.PerspectiveCamera(
