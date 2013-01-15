@@ -124,8 +124,8 @@
                 <h2>2. A close second!</h2>
                 <div data-build>
                     <div>
-                        <img src="img/webgl-nyan-cat.png" alt="WebGL Nyan Cat" class="border"/>
-                        <p><a href="http://dl.dropbox.com/u/6213850/WebGL/nyanCat/nyan.html">dl.dropbox.com/u/6213850/WebGL/nyanCat/nyan.html</a></p>
+                        <img src="img/webgl-nyan-cat.png" alt="WebGL Nyan Cat" class="border" height="400px"/>
+                        <p><a href="http://dl.dropbox.com/u/6213850/WebGL/nyanCat/nyan.html">bit.ly/webglnyancat</a></p>
                     </div>
                 </div>
             </div>
@@ -352,7 +352,7 @@
                     <ul>
                         <li>The most popular JS library for 3D graphics</li>
                         <li>WebGL renderer</li>
-                        <li>Also CSS, canvas, SVG and software renderers</li>
+                        <li>Also CSS, canvas, SVG &amp; software renderers</li>
                         <li><a href="http://mrdoob.github.com/three.js/" class="externalLink">mrdoob.github.com/three.js/</a></li>
                     </ul>
                 </div>
@@ -685,8 +685,6 @@
                 <pre>
 <span class="kwd">function</span> <span class="method">roar</span>() {
 
-    <span class="comment">// Recreate each time because Chrome won't replay!</span>
-    <span class="kwd">var</span> <span class="var">roarSound</span> = <span class="kwd">new</span> <span class="method">Audio</span>(<span class="str">'media/dinosaur.mp3'</span>);
     <span class="var">roarSound</span>.<span class="method">play</span>();
 
     <span class="var">speechBubble.className</span> = <span class="str">''</span>; <span class="comment">// show</span>
@@ -721,13 +719,40 @@
             -->
 
             <div class="slide">
-                <h2 class="v-centre">Diversion: let's talk CSS</h2>
+                <h2 class="v-centre">Quick Diversion</h2>
             </div>
 
             <div class="slide">
-                <h2>What do you reckon Google used to build this?</h2>
-                <img src="img/creative-guidebook.png" alt="Google Creative Guidebook"/>
-                <a href="http://www.creativesandbox.com/guidebook">www.creativesandbox.com/guidebook</a>
+                <h2>How did they build this?</h2>
+                <div data-build>
+                    <div>
+                        <img src="img/creative-guidebook.png" class="border" alt="Google Creative Guidebook"/>
+                        <p><a href="http://www.creativesandbox.com/guidebook">www.creativesandbox.com/guidebook</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>CSS</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>If you can make up your scene from flat shapes...</li>
+                        <li>...then use CSS and get more browser support!</li>
+                        <li>Three.js now has a <a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CSS3DRenderer.js">CSS3DRenderer</a></li>
+                        <li>Try on your mobile: <a href="http://bit.ly/css3d-periodic-table">bit.ly/css3d-periodic-table</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="slide">
+                <h2>Talking of other renderers...</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>FYI, they're also working on a <a href="https://github.com/mrdoob/three.js/blob/dev/examples/js/renderers/SoftwareRenderer.js">Software Renderer</a></li>
+                        <li>Try on your mobile: <a href="http://bit.ly/threejs-software-renderer">bit.ly/threejs-software-renderer</a></li>
+                        <li>~15FPS on Chrome Beta on Galaxy Nexus</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="slide">
