@@ -556,7 +556,11 @@ pre .prim {
     text-shadow: 3px 3px 3px #333;
 }
 
+.more .centre-wrap {
+    margin-top: 20px;
+}
+
 .more li {
-    font-size: 0.5em;
+    font-size: 0.7em;
     line-height: 1.2em;
 }
