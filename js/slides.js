@@ -375,7 +375,7 @@ var Slides = function(slideChangeCallback) {
     // Set flags to switch animations on/off based on visible slide - for performance reasons
     this.setAnimationFlags = function() {
 
-        for( var i=0; i<6; i++ ) {
+        for( var i=0; i<7; i++ ) {
             this.showAnimations[i] = document.getElementById('demo'+i).className.indexOf('current') > -1;
         }
 
