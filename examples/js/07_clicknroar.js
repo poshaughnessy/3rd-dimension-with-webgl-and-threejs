@@ -43,7 +43,7 @@
     var loader = new THREE.JSONLoader();
     var model;
 
-    var filePath = document.domain == 'pft-lon.pearson.com' ? 'models/trex/trex.js' : '../../models/trex/trex.js';
+    var filePath = '../../models/trex/trex.js';
 
     loader.load(filePath, function(geometry) {
 
@@ -64,7 +64,7 @@
     var animate = function() {
 
         // Optimisation
-        if( slides && slides.showAnimations[5] ) {
+        if( slides && slides.showAnimations[6] ) {
             renderer.render( scene, camera );
         }
 

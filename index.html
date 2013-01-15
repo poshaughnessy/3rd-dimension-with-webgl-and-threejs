@@ -24,7 +24,7 @@
 -->
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title>WebGL Slides</title>
 
     <script src="js/jquery-1.7.1.js"></script>
@@ -183,21 +183,17 @@
             </div>
 
             <div class="slide">
-                <h2>Alternatives</h2>
+                <h2>What about those without WebGL?</h2>
                 <div class="centre-wrap">
                     <ul>
                         <div data-build>
                             <div>
-                                <li>You can detect support &amp; add a message</li>
-                                <li>Provide an alternative (always, unless just a demo)</li>
+                                <li>You can detect support &amp; add a nice message</li>
+                                <li>Provide an alternative - for accessibility too</li>
                                 <li>You could try a different renderer (more later)</li>
-                                <!--
-                                    <li>Three.js Software renderer (very new)</li>
-                                    <li>Three.js CSS3DRenderer (maybe)</li>
-                                -->
                             </div>
-                            <li><em>You can use it in production now (if you're l33t!)</em></li>
-                            <li>E.g. <a href="http://www.eveonline.com/universe/spaceships/absolution/" class="externalLink">EVE Online Spaceships</a></li>
+                            <li>Fallback example: <a href="http://www.eveonline.com/universe/spaceships/absolution/" class="externalLink">EVE Online Spaceships</a></li>
+                            <li><em>You can use it in production now - if you're leet!</em></li>
                         </div>
                     </ul>
                 </div>
@@ -571,8 +567,10 @@
                 <h2>Adding models</h2>
                 <div class="centre-wrap" data-build>
                     <ul>
-                        <li>Built-in support for Three.js JSON format</li>
+                        <li>Built-in loaders for Three.js JSON &amp; binary formats</li>
                         <li>Loaders for Collada (.DAE), Wavefront (.OBJ) &amp; more</li>
+                        <li>Converter from .OBJ to Three.js</li>
+                        <li>Blender export plugin</li>
                     </ul>
                 </div>
             </div>
@@ -623,15 +621,22 @@
                 <div class="centre-wrap" data-build>
                     <ul>
                         <li>Three.js is a graphics engine, not a game engine</li>
-                        <li>It does have e.g. <a href="https://github.com/mrdoob/three.js/tree/master/examples/js/controls">common controls</a> ready to use</li>
-                        <li>Otherwise, you add the rest:</li>
-                        <li>Interactivity, animation, physics...</li>
+                        <li>It does have <a href="https://github.com/mrdoob/three.js/tree/master/examples/js/controls">common controls</a> ready to use</li>
+                        <li>Add libraries or roll your own for the rest</li>
+                        <!--<li>Interactivity, animation, physics...</li>-->
                     </ul>
                 </div>
             </div>
 
             <div class="slide">
-                <h2>E.g. How do you click on stuff?</h2>
+                <h2>FirstPersonControls example</h2>
+                <pre>
+todo
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>So how do you click on stuff?</h2>
                 <div class="centre-wrap" data-build>
                     <ul>
                         <li>Click events in 3D space?</li>
@@ -879,9 +884,13 @@
             </div>
 
             <div class="slide more">
-                <h2>Questions?</h2>
+                <h2>Find out more</h2>
                 <div class="centre-wrap">
                     <ul>
+                        <li>
+                            Take a look at the source, there's loads of examples:<br/>
+                            <a href="https://github.com/mrdoob/three.js">github.com/mrdoob/three.js</a>
+                        </li>
                         <li>
                             An introduction to WebGL | Opera Dev<br/>
                             <a href="http://dev.opera.com/articles/view/an-introduction-to-webgl/">dev.opera.com/articles/view/an-introduction-to-webgl/</a>
@@ -906,13 +915,11 @@
                 </div>
             </div>
 
-            <!--
             <div class="slide">
                 <h2>Questions</h2>
                 <p class="question-mark">?</p>
-                <p class="this-link-again"><a href="http://bit.ly/webgl-tech-summit">bit.ly/webgl-tech-summit</a></p>
+                <!--<p class="this-link-again"><a href="http://bit.ly/webgl-tech-summit">bit.ly/webgl-tech-summit</a></p>-->
             </div>
-            -->
 
         </div>
     </div>

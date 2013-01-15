@@ -8,7 +8,7 @@
     renderer.setSize( window.innerHeight * 0.7, window.innerHeight * 0.7 );
 
     // Add generated <canvas> to page
-    var container = document.getElementById('dinosaurContainer');
+    var container = document.getElementById('firstPersonDinoContainer');
     container.appendChild( renderer.domElement );
 
     // Make a scene
@@ -30,6 +30,13 @@
     // Add it to the scene
     scene.add( camera );
 
+    // Controls
+    controls = new THREE.FlyControls( camera );
+
+    controls.movementSpeed = 30;
+    controls.rollSpeed = 0.1;
+    controls.dragToLook = true; // Just moving mouse shouldn't change rotation
+
     // Lights
     var ambientLight = new THREE.AmbientLight( 0xBBBBBB );
     scene.add( ambientLight );
@@ -43,6 +50,8 @@
     var loader = new THREE.JSONLoader();
     var mesh;
 
+    var clock = new THREE.Clock();
+
     var filePath = '../../models/trex/trex.js';
 
     loader.load(filePath, function(geometry) {
@@ -51,7 +60,8 @@
                 new THREE.MeshFaceMaterial() );
 
         mesh.scale.set(10, 10, 10);
-        mesh.position.set( 0, -50, -300 );
+        mesh.rotation.y = Math.PI / 2;
+        mesh.position.set( 0, -50, 0 );
 
         scene.add( mesh );
 
@@ -63,10 +73,13 @@
     var animate = function() {
 
         // Optimisation
-        if( slides && slides.showAnimations[4] ) {
+        if( slides && slides.showAnimations[5] ) {
 
-            mesh.rotation.y += 0.05;
             renderer.render( scene, camera );
+
+            var delta = clock.getDelta();
+
+            controls.update(delta);
 
         }
 
