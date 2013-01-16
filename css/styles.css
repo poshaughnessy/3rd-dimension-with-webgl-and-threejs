@@ -505,11 +505,11 @@ pre .prim {
     margin-bottom: 0.1em;
 }
 
-.intro .navigation {
-    margin-top: 0.5em;
+.intro .url {
+    font-size: 1.1em;
 }
 
-.navigation {
+.intro .navigation {
     color: #FFF79D;
 }
 
