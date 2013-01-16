@@ -25,7 +25,7 @@
             10000         // zFar
     );
 
-    camera.position.z = 300;
+    camera.position.z = 250;
 
     // Add it to the scene
     scene.add( camera );
