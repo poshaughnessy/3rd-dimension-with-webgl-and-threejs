@@ -856,7 +856,7 @@
                 <div class="centre-wrap" data-build>
                     <ul>
                         <li>If you can make up your scene from flat shapes...</li>
-                        <li>...then use CSS 3D transforms &amp; get more browser support!</li>
+                        <li>...use CSS 3D transforms for more browser support!</li>
                         <li>Three.js now has a <a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CSS3DRenderer.js">CSS3DRenderer</a></li>
                         <li>Try on your mobile: <a href="http://bit.ly/css3d-periodic-table">bit.ly/css3d-periodic-table</a></li>
                     </ul>
@@ -867,15 +867,16 @@
                 <h2>Talking of other renderers...</h2>
                 <div class="centre-wrap" data-build>
                     <ul>
-                        <li>FYI, they're also working on a <a href="https://github.com/mrdoob/three.js/blob/dev/examples/js/renderers/SoftwareRenderer.js">Software Renderer</a></li>
-                        <li>Try on your mobile: <a href="http://bit.ly/threejs-software-renderer">bit.ly/threejs-software-renderer</a></li>
+                        <li>They're also working on a <a href="https://github.com/mrdoob/three.js/blob/dev/examples/js/renderers/SoftwareRenderer.js">Software Renderer</a></li>
+                        <li>In time, could be just fast enough for simple stuff</li>
                         <li>~15FPS on Chrome Beta on Galaxy Nexus</li>
+                        <li>Try on your mobile: <a href="http://bit.ly/threejs-software-renderer">bit.ly/threejs-software-renderer</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="slide">
-                <h2>CSS Filters are coming soon too...</h2>
+                <h2>CSS Filters</h2>
                 <div class="centre-wrap" data-build>
                     <ul>
                         <li>Shaders for 'normal' HTML content, through CSS</li>
@@ -939,7 +940,7 @@
                 <div class="centre-wrap" data-build>
                     <ul>
                         <li>It's hard...</li>
-                        <li><em>WebGL Inspector</em> Chrome extension - alpha</li>
+                        <li><em>WebGL Inspector</em> Chrome extension only alpha</li>
                         <li>Three.js docs can be <a href="http://mrdoob.github.com/three.js/docs/51/#ColorUtils" class="externalLink">lacking</a> - <em>use the source</em></li>
                         <li>Three.js community <a href="http://stackoverflow.com/questions/tagged/three.js">very helpful</a></li>
                         <li>Example: <a href="examples/10_debug.html" class="externalLink">rendering before image load</a>. And <a href="examples/10_debug-fixed.html" class="externalLink">fixed</a>.</li>
@@ -948,24 +949,25 @@
             </div>
 
             <div class="slide">
-                <h2>Quirks</h2>
+                <h2>Be aware...</h2>
                 <div class="centre-wrap">
                     <ul data-build>
                         <li>Performance can depend on canvas size!</li>
-                        <li>Shadows (used to) kill Safari performance</li>
-                        <li>Shadow map with no spotlights makes WebGL mad</li>
+                        <li>Shadow maps with no spotlights make WebGL mad</li>
                         <li>Restarting browser sometimes fixes things!</li>
+                        <li>Most annoying when nothing visible but no errors!</li>
                     </ul>
                 </div>
             </div>
 
             <div class="slide">
                 <h2>Finally... here's the number 1 best example</h2>
-                <div data-build>
-                    <div>
-                        <img src="img/doom3-gangnam-style.png" alt="Doom 3 Gangnam Style" class="border"/>
-                        <p><a href="http://apps.playcanvas.com/will/doom3/gangnamstyle" class="externalLink">apps.playcanvas.com/will/doom3/gangnamstyle</a></p>
-                    </div>
+                <div>
+                    <video width="602" height="450" controls>
+                        <source src="media/gangnam-style.webm" type="video/webm"/>
+                        <source src="media/gangnam-style.mp4" type="video/mp4"/>
+                    </video>
+                    <p><a href="http://apps.playcanvas.com/will/doom3/gangnamstyle" class="externalLink">apps.playcanvas.com/will/doom3/gangnamstyle</a></p>
                 </div>
             </div>
 
