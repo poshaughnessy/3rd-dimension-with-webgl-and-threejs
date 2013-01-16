@@ -32,7 +32,7 @@
     scene.add( camera );
 
     // Controls
-    var controls = new THREE.FlyControls( camera );
+    var controls = new THREE.FlyControlsMod( camera );
 
     controls.movementSpeed = 30;
     controls.rollSpeed = 0.1;

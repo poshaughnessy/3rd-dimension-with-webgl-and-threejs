@@ -489,17 +489,24 @@ pre .prim {
 }
 
 .intro h4 {
-    margin: 6em 0 1em;
+    margin: 6em 0 0.5em;
 }
 
 .intro h3.show + h4 {
     margin-top: 4em;
 }
 
-.instructions {
-    font-size: 1.1em;
+.intro h5 {
+    margin: 0;
+}
+
+.intro .instructions {
     text-shadow: 2px 2px 2px #333;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.1em;
+}
+
+.intro .navigation {
+    margin-top: 0.5em;
 }
 
 .navigation {
@@ -576,6 +583,12 @@ pre .prim {
 }
 
 #flyByDinoContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#tweenContainer {
     position: absolute;
     left: 0;
     top: 0;

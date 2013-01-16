@@ -35,6 +35,9 @@
     <script src="js/Detector.js"></script>
     <script src="js/Stats.js"></script>
     <script src="js/ImageUtils.js"></script>
+    <script src="js/Tween.js"></script>
+    <script src="js/ColladaLoader.js"></script>
+    <script src="js/FlyControlsMod.js"></script>
     <script src="fonts/helvetiker_regular.typeface.js"></script>
 
     <!-- Ours -->
@@ -57,6 +60,7 @@
                 <h2>With WebGL and Three.js</h2>
                 <h3 id="noWebGL">Sorry, these slides require a browser that supports <a href="http://get.webgl.org/">WebGL</a></h3>
                 <h4>Peter O'Shaughnessy, Future Technologies, Pearson</h4>
+                <h5>@poshaughnessy</h5>
                 <p class="instructions">Best viewed in Chrome</p>
                 <p class="instructions navigation">Press up &amp; down arrow keys to navigate</p>
             </div>
@@ -67,7 +71,7 @@
                     <div data-build>
                         <ul>
                             <li>JavaScript API (no plugins!)</li>
-                            <li>Interactive graphics in the browser (2D or 3D)</li>
+                            <li>Hardware accelerated graphics (3D or 2D)</li>
                             <li>Open standard based on OpenGL ES 2.0</li>
                             <li>&ldquo;HTML5 family&rdquo;</li>
                         </ul>
@@ -76,7 +80,7 @@
             </div>
 
             <div class="slide">
-                <h2>What can I use it for?</h2>
+                <h2>What can you use it for?</h2>
                 <div class="centre-wrap">
                     <ul>
                         <div data-build>
@@ -161,7 +165,7 @@
                         <li>Windows XP onwards</li>
                         <li>Mac OS 10.6+</li>
                         <li>Linux</li>
-                        <li>(Chrome OS)</li>
+                        <li>Chrome OS</li>
                         <li><em>Can also depend on graphics card & drivers</em></li>
                     </ul>
                 </div>
@@ -613,7 +617,7 @@
                 <h2>Adding a dinosaur</h2>
                 <div id="dinosaurContainer"></div>
                 <script src="examples/js/06_addingadinosaur.js"></script>
-                <p class="credits">Dinosaur model &copy;Dorling Kindersley</p>
+                <p class="credits">Dinosaur used with kind permission from DK</p>
             </div>
 
             <div class="slide">
@@ -631,26 +635,24 @@
             <div class="slide">
                 <h2>FlyControls example (1/2)</h2>
                 <pre>
-var controls = new THREE.FlyControls( camera );
+<span class="kwd">var</span> <span class="var">controls</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">FlyControls</span>( <span class="var">camera</span> );
 
-controls.movementSpeed = 30;
-controls.rollSpeed = 0.1;
-controls.dragToLook = true;
+<span class="var">controls.movementSpeed</span> = <span class="prim">30</span>;
+<span class="var">controls.rollSpeed</span> = <span class="prim">0.1</span>;
+<span class="prim">controls.dragToLook</span> = <span class="prim">true</span>;
                 </pre>
             </div>
 
             <div class="slide">
                 <h2>FlyControls example (2/2)</h2>
                 <pre>
-var clock = new THREE.Clock();
+<span class="kwd">var</span> <span class="var">clock</span> = <span class="kwd">new</span> <span class="var">THREE</span>.<span class="method">Clock</span>();
 
-var animate = function() {
+<span class="kwd">var</span> <span class="var">animate</span> = <span class="kwd">function</span>() {
 
-    ...
+    <span class="kwd">var</span> <span class="var">delta</span> = <span class="var">clock</span>.<span class="method">getDelta</span>();
 
-    var delta = clock.getDelta();
-
-    controls.update(delta);
+    <span class="var">controls</span>.<span class="method">update</span>(<span class="var">delta</span>);
 
     ...
 
@@ -662,7 +664,7 @@ var animate = function() {
                 <h2>Fly-By Dinosaur</h2>
                 <div id="flyByDinoContainer"></div>
                 <script src="examples/js/07_dinosaurflyby.js"></script>
-                <p class="credits">Dinosaur model &copy;Dorling Kindersley</p>
+                <p class="credits">Dinosaur used with kind permission from DK</p>
             </div>
 
             <div class="slide">
@@ -678,12 +680,12 @@ var animate = function() {
 
             <div class="slide">
                 <img src="img/ray1.png" class="ray" alt="Ray 1" width="60%"/>
-                <p class="credits">Image credit: <a href="http://www.yomotsu.net/" class="externalLink">yomotsu</a></p>
+                <p class="credits">Thanks to <a href="http://www.yomotsu.net/" class="externalLink">yomotsu</a> for the image</p>
             </div>
 
             <div class="slide">
                 <img src="img/ray2.png" class="ray" alt="Ray 2" width="60%"/>
-                <p class="credits">Image credit: <a href="http://www.yomotsu.net/" class="externalLink">yomotsu</a></p>
+                <p class="credits">Thanks to <a href="http://www.yomotsu.net/" class="externalLink">yomotsu</a> for the image</p>
             </div>
 
             <div class="slide">
@@ -745,7 +747,7 @@ var animate = function() {
                 <img src="img/roar.png" id="roarSpeechBubble" class="hidden" alt="Roar!"/>
                 <div id="dinosaurRoarContainer"></div>
                 <script src="examples/js/08_clicknroar.js"></script>
-                <p class="credits">Dinosaur model &copy;Dorling Kindersley</p>
+                <p class="credits">Dinosaur used with kind permission from DK</p>
             </div>
 
             <!--
@@ -763,13 +765,80 @@ var animate = function() {
             </div>
             -->
 
-            <div class="slide">
-                <h2>What about animation?</h2>
-                <h3>TODO...</h3>
+            <div class="slide" id="demo7">
+                <h2>Time for an animated robot</h2>
+                <div id="tweenContainer"></div>
+                <script src="examples/js/09_tween.js"></script>
             </div>
 
             <div class="slide">
-                <h2 class="v-centre">Quick Diversion</h2>
+                <h2>Tween.js (1/4)</h2>
+                <pre>
+<span class="var">loader</span>.<span class="method">load</span>( 'models/robot.dae', <span class="kwd">function</span>( <span class="var">collada</span> ) {
+
+<span class="kwd">var</span> <span class="var">model</span> = <span class="var">collada.scene</span>;
+
+...
+
+<span class="comment">/*
+ * IDs correspond to values in the XML-based Collada file, e.g.
+ * &lt;node id="ID93" name="leftLeg"&gt;
+ */</span>
+<span class="var">robot.key</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID65', <span class="prim">true</span>);
+<span class="var">robot.head</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID139', <span class="prim">true</span>);
+<span class="var">robot.leftLeg</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID93', <span class="prim">true</span>);
+<span class="var">robot.rightLeg</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID75', <span class="prim">true</span>);
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Tween.js (2/4)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">keyTurn</span> = <span class="kwd">new</span> <span class="var">TWEEN</span>.<span class="method">Tween</span>( <span class="var">robot.key.rotation</span> )
+    .<span class="method">to</span>( { <span class="var">x</span>: <span class="var">robot.key.rotation.x</span> - (<span class="prim">Math.PI * 2</span>) }, <span class="prim">3000</span>)
+    .<span class="method">onComplete</span>(<span class="kwd">function</span>() {
+        <span class="var">robot.key.rotation.x</span> = <span class="prim">0</span>;
+    });
+
+<span class="var">keyTurn</span>.<span class="method">chain</span>( <span class="var">keyTurn</span> );
+
+<span class="var">keyTurn</span>.<span class="method">start</span>();
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Tween.js (3/4)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">rightLegForwards</span> = <span class="kwd">new</span> <span class="var">TWEEN</span>.<span class="method">Tween</span>( <span class="var">robot.rightLeg.rotation</span> )
+    .<span class="method">to</span>( { <span class="var">z</span>: <span class="var">robot.rightLeg.rotation.z</span> - (<span class="prim">Math.PI / 9</span>) }, <span class="prim">1000</span> )
+    .<span class="method">easing</span>( <span class="var">TWEEN.Easing.Quadratic.InOut</span> );
+
+<span class="kwd">var</span> <span class="var">rightLegBackwards</span> = <span class="kwd">new</span> <span class="var">TWEEN</span>.<span class="method">Tween</span>( <span class="var">robot.rightLeg.rotation</span> )
+    .<span class="method">to</span>( { <span class="var">z</span>: <span class="var">robot.rightLeg.rotation.z</span> + (<span class="prim">Math.PI / 9</span>) }, <span class="prim">1000</span> )
+    .<span class="method">easing</span>( <span class="var">TWEEN.Easing.Quadratic.InOut</span> );
+
+<span class="var">rightLegForwards</span>.<span class="method">chain</span>( <span class="var">rightLegBackwards</span> );
+<span class="var">rightLegBackwards</span>.<span class="method">chain</span>( <span class="var">rightLegForwards</span> );
+
+<span class="var">rightLegForwards</span>.<span class="method">start</span>();
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2>Tween.js (4/4)</h2>
+                <pre>
+<span class="kwd">var</span> <span class="var">animate</span> = <span class="kwd">function</span>() {
+
+    <span class="var">TWEEN</span>.<span class="method">update</span>();
+
+    ...
+
+}
+                </pre>
+            </div>
+
+            <div class="slide">
+                <h2 class="v-centre">Now for something slightly different</h2>
             </div>
 
             <div class="slide">
@@ -787,7 +856,7 @@ var animate = function() {
                 <div class="centre-wrap" data-build>
                     <ul>
                         <li>If you can make up your scene from flat shapes...</li>
-                        <li>...then use CSS(3) and get more browser support!</li>
+                        <li>...then use CSS 3D transforms &amp; get more browser support!</li>
                         <li>Three.js now has a <a href="https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CSS3DRenderer.js">CSS3DRenderer</a></li>
                         <li>Try on your mobile: <a href="http://bit.ly/css3d-periodic-table">bit.ly/css3d-periodic-table</a></li>
                     </ul>
@@ -873,7 +942,7 @@ var animate = function() {
                         <li><em>WebGL Inspector</em> Chrome extension - alpha</li>
                         <li>Three.js docs can be <a href="http://mrdoob.github.com/three.js/docs/51/#ColorUtils" class="externalLink">lacking</a> - <em>use the source</em></li>
                         <li>Three.js community <a href="http://stackoverflow.com/questions/tagged/three.js">very helpful</a></li>
-                        <li>Example: <a href="examples/09_debug.html" class="externalLink">rendering before image load</a>. And <a href="examples/09_debug-fixed.html" class="externalLink">fixed</a>.</li>
+                        <li>Example: <a href="examples/10_debug.html" class="externalLink">rendering before image load</a>. And <a href="examples/10_debug-fixed.html" class="externalLink">fixed</a>.</li>
                     </ul>
                 </div>
             </div>

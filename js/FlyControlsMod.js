@@ -1,8 +1,8 @@
 /**
  * @author James Baicoianu / http://www.baicoianu.com/
  */
-
-THREE.FlyControls = function ( object, domElement ) {
+// Modified by Peter to remove up & down keys (since they're used by the slides)
+THREE.FlyControlsMod = function ( object, domElement ) {
 
 	this.object = object;
 
@@ -64,8 +64,9 @@ THREE.FlyControls = function ( object, domElement ) {
 			case 82: /*R*/ this.moveState.up = 1; break;
 			case 70: /*F*/ this.moveState.down = 1; break;
 
-			case 38: /*up*/ this.moveState.pitchUp = 1; break;
-			case 40: /*down*/ this.moveState.pitchDown = 1; break;
+            // Removed by Peter since we're using Up & Down for the slides
+            //case 38: /*up*/ this.moveState.pitchUp = 1; break;
+			//case 40: /*down*/ this.moveState.pitchDown = 1; break;
 
 			case 37: /*left*/ this.moveState.yawLeft = 1; break;
 			case 39: /*right*/ this.moveState.yawRight = 1; break;
@@ -95,8 +96,9 @@ THREE.FlyControls = function ( object, domElement ) {
 			case 82: /*R*/ this.moveState.up = 0; break;
 			case 70: /*F*/ this.moveState.down = 0; break;
 
-			case 38: /*up*/ this.moveState.pitchUp = 0; break;
-			case 40: /*down*/ this.moveState.pitchDown = 0; break;
+            // Removed by Peter since we're using Up & Down for the slides
+			//case 38: /*up*/ this.moveState.pitchUp = 0; break;
+			//case 40: /*down*/ this.moveState.pitchDown = 0; break;
 
 			case 37: /*left*/ this.moveState.yawLeft = 0; break;
 			case 39: /*right*/ this.moveState.yawRight = 0; break;
