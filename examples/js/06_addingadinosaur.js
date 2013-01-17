@@ -2,10 +2,13 @@
 
     if( !Detector.webgl ) return;
 
+    var width = window.innerWidth * 0.8;
+    var height = window.innerHeight * 0.7;
+
     // Create a WebGL renderer
     var renderer = new THREE.WebGLRenderer();
 
-    renderer.setSize( window.innerHeight * 0.7, window.innerHeight * 0.7 );
+    renderer.setSize( width, height );
 
     // Add generated <canvas> to page
     var container = document.getElementById('dinosaurContainer');
@@ -13,9 +16,6 @@
 
     // Make a scene
     var scene = new THREE.Scene();
-
-    var width = window.innerHeight * 0.7;
-    var height = window.innerHeight * 0.7;
 
     // Create a camera
     var camera = new THREE.PerspectiveCamera(
@@ -25,7 +25,7 @@
             10000         // zFar
     );
 
-    camera.position.z = 250;
+    camera.position.z = 200;
 
     // Add it to the scene
     scene.add( camera );
@@ -51,7 +51,7 @@
                 new THREE.MeshFaceMaterial() );
 
         mesh.scale.set(10, 10, 10);
-        mesh.position.set( 0, -50, -300 );
+        mesh.position.set( 0, -75, -300 );
 
         scene.add( mesh );
 
