@@ -160,7 +160,7 @@
                 .easing( TWEEN.Easing.Quadratic.InOut );
 
         var tweenWalkToCentre = new TWEEN.Tween( robot.model.position )
-                .to( { x: 0, z: 300 }, 10000 )
+                .to( { x: 0, z: 250 }, 10000 )
                 .onComplete(function() {
                     tweenTurnBack.start();
                 });
