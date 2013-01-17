@@ -777,18 +777,18 @@
                 <pre>
 <span class="var">loader</span>.<span class="method">load</span>( 'models/robot.dae', <span class="kwd">function</span>( <span class="var">collada</span> ) {
 
-<span class="kwd">var</span> <span class="var">model</span> = <span class="var">collada.scene</span>;
+    <span class="kwd">var</span> <span class="var">model</span> = <span class="var">collada.scene</span>;
 
-...
+    ...
 
-<span class="comment">/*
- * IDs correspond to values in the XML-based Collada file, e.g.
- * &lt;node id="ID93" name="leftLeg"&gt;
- */</span>
-<span class="var">robot.key</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID65', <span class="prim">true</span>);
-<span class="var">robot.head</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID139', <span class="prim">true</span>);
-<span class="var">robot.leftLeg</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID93', <span class="prim">true</span>);
-<span class="var">robot.rightLeg</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID75', <span class="prim">true</span>);
+    <span class="comment">/*
+     * IDs correspond to values in the XML-based Collada file,
+     * e.g. &lt;node id="ID93" name="leftLeg"&gt;
+     */</span>
+    <span class="var">robot.key</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID65', <span class="prim">true</span>);
+    <span class="var">robot.head</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID139', <span class="prim">true</span>);
+    <span class="var">robot.leftLeg</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID93', <span class="prim">true</span>);
+    <span class="var">robot.rightLeg</span> = <span class="var">model</span>.<span class="method">getChildByName</span>('ID75', <span class="prim">true</span>);
                 </pre>
             </div>
 
@@ -836,6 +836,17 @@
 
 }
                 </pre>
+            </div>
+
+            <div class="slide">
+                <h2>What about physics &amp; collision detection</h2>
+                <div class="centre-wrap" data-build>
+                    <ul>
+                        <li>Libraries are out there</li>
+                        <li>E.g. You could try <a href="http://chandlerprall.github.com/Physijs/">Physijs</a>...</li>
+                        <li>...which is built on top of <a href="https://github.com/kripken/ammo.js/" class="externalLink">ammo.js</a></li>
+                    </ul>
+                </div>
             </div>
 
             <div class="slide">
