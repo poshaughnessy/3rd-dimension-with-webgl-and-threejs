@@ -20,9 +20,9 @@ if( gl ) {
 
     // Vertices for triangle
     /*
-     2 (0, 0.5)
-     /\
-     /  \
+                       2 (0, 0.5)
+                      /\
+                     /  \
      (-0.5, -0.5) 0 /____\ 1 (0.5, -0.5)
      */
     var vertices = [
@@ -37,12 +37,12 @@ if( gl ) {
 
     var vertexShaderSource = 'attribute vec2 pos;' +
             'void main() {' +
-            '  gl_Position = vec4(pos, 0, 1);' + // xyz(w)
+            '  gl_Position = vec4( pos, 0.0, 1.0 );' + // xyzw
             '}';
 
     var fragmentShaderSource = 'precision mediump float;' +
             'void main() {' +
-            '  gl_FragColor = vec4( 0, 1.0, 0, 1);' + // rgba
+            '  gl_FragColor = vec4( 0.0, 1.0, 0.0, 1.0 );' + // rgba
             '}';
 
     // Create shaders

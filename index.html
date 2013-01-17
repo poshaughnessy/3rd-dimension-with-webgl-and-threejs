@@ -72,8 +72,8 @@
                         <ul>
                             <li>JavaScript API (no plugins!)</li>
                             <li>Hardware accelerated 3D (or 2D) graphics</li>
-                            <li>Open standard based on OpenGL ES 2.0</li>
-                            <li>&ldquo;HTML5 family&rdquo;</li>
+                            <li>Open standard based on OpenGL ES</li>
+                            <li>Not HTML5 (but uses HTML5 canvas)</li>
                         </ul>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
             </div>
 
             <div class="slide">
-                <h2>WebGL Pipeline</h2>
+                <h2>WebGL Pipeline (simplified)</h2>
                 <img class="workflow" src="img/webgl-workflow.png" alt="WebGL workflow"/>
             </div>
 
@@ -265,13 +265,13 @@
 <span class="kwd">var</span> <span class="var">vertexShaderSource</span> =
         <span class="str">'attribute vec2 pos;'</span> +
         <span class="str">'void main() {'</span> +
-        <span class="str">'  gl_Position = vec4(pos, 0, 1);'</span> + <span class="comment">// xyz(w)</span>
+        <span class="str">'  gl_Position = vec4( pos, 0.0, 1.0 );'</span> + <span class="comment">// xyzw</span>
         <span class="str">'}'</span>;
 
 <span class="kwd">var</span> <span class="var">fragmentShaderSource</span> =
         <span class="str">'precision mediump float;'</span> +
         <span class="str">'void main() {'</span> +
-        <span class="str">'  gl_FragColor = vec4( 0, 1.0, 0, 1);'</span> + <span class="comment">// rgba</span>
+        <span class="str">'  gl_FragColor = vec4( 0.0, 1.0, 0.0, 1.0 );'</span> + <span class="comment">// rgba</span>
         <span class="str">'}'</span>;
                 </pre>
             </div>
@@ -314,7 +314,7 @@
             <div class="slide">
                 <h2>Hello WebGL (6/6)</h2>
                 <pre>
-<span class="comment">// Hook up buffer to program input</span>
+<span class="comment">// Hook up program input and buffer</span>
 <span class="var">program.vertexPosAttrib</span> =
         <span class="var">gl</span>.<span class="method">getAttribLocation</span>( <span class="var">program</span>, <span class="str">'pos'</span> );
 
@@ -1008,6 +1008,10 @@
                         <li>
                             Three.js Walking Map<br/>
                             <a href="http://ushiroad.com/3j/">ushiroad.com/3j/</a>
+                        </li>
+                        <li>
+                            An intro to modern OpenGL: Shaders<br/>
+                            <a href="http://duriansoftware.com/joe/An-intro-to-modern-OpenGL.-Chapter-2.2:-Shaders.html">duriansoftware.com/joe/An-intro-to-modern-OpenGL.-Chapter-2.2:-Shaders.html</a>
                         </li>
                         <li>
                             WebGL: Up and Running [Book]<br/>
