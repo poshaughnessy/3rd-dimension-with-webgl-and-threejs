@@ -71,8 +71,7 @@
         loader.load( '../models/robot/robot_cartoon_02.dae', function( collada ) {
 
             var model = collada.scene;
-            model.position.set(1000, 0, -500);
-            model.rotation.y = Math.PI / 4;
+            model.position.set(0, 0, 250);
 
             robot.model = model;
 
@@ -155,14 +154,10 @@
                 .easing( TWEEN.Easing.Quadratic.InOut );
 
 
-        var tweenTurnBack = new TWEEN.Tween( robot.model.rotation )
-                .to( { y: robot.model.rotation.y + (RAD_45) }, 3000 )
-                .easing( TWEEN.Easing.Quadratic.InOut );
-
-        var tweenWalkToCentre = new TWEEN.Tween( robot.model.position )
-                .to( { x: 0, z: 250 }, 10000 )
+        var tweenSpinRound = new TWEEN.Tween( robot.model.rotation )
+                .to( { y: robot.model.rotation.y + (RAD_360) }, 8000 )
                 .onComplete(function() {
-                    tweenTurnBack.start();
+                    robot.model.rotation.y = 0;
                 });
 
 
@@ -183,6 +178,8 @@
         tweenRightArmForwards.chain( tweenRightArmBackwards );
         tweenRightArmBackwards.chain( tweenRightArmForwards );
 
+        tweenSpinRound.chain( tweenSpinRound );
+
         tweenKeyTurn.start();
         tweenHeadTurn.start();
         tweenLeftLegForwards.start();
@@ -190,7 +187,7 @@
         tweenLeftArmForwards.start();
         tweenRightArmBackwards.start();
 
-        tweenWalkToCentre.start();
+        tweenSpinRound.start();
 
     }
 
